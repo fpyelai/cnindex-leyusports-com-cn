@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>星空体育 · 简明指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(165deg, #f9e7c2 0%, #f3d8b0 30%, #ecc9a0 60%, #e2b990 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1rem;
+      line-height: 1.6;
+      color: #2d221a;
+    }
+
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      background: rgba(255, 248, 240, 0.6);
+      backdrop-filter: blur(2px);
+      border-radius: 48px 48px 32px 32px;
+      padding: 2.5rem 2.2rem;
+      box-shadow: 0 20px 40px -12px rgba(100, 60, 30, 0.25);
+    }
+
+    /* 页面标题区 */
+    .page-header {
+      margin-bottom: 2.8rem;
+      text-align: left;
+      border-left: 6px solid #b87c4e;
+      padding-left: 1.4rem;
+    }
+
+    .page-header h1 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #3f2a1b;
+      line-height: 1.2;
+    }
+
+    .page-header .sub {
+      font-size: 1.08rem;
+      color: #6f4e34;
+      margin-top: 0.4rem;
+      opacity: 0.85;
+      font-weight: 400;
+    }
+
+    /* 目录感网格 */
+    .grid-dir {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.6rem;
+      margin: 2.4rem 0 2rem 0;
+    }
+
+    .dir-card {
+      background: #fffcf7;
+      border-radius: 24px;
+      padding: 1.8rem 1.5rem 1.6rem;
+      box-shadow: 0 6px 14px rgba(140, 100, 70, 0.08);
+      transition: all 0.15s ease;
+      border: 1px solid #f2e3d4;
+    }
+
+    .dir-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px -8px rgba(120, 80, 50, 0.15);
+      border-color: #dbbc9f;
+    }
+
+    .dir-card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #4b3423;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dir-card p {
+      color: #4a3a2e;
+      font-size: 0.97rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .dir-card .badge {
+      display: inline-block;
+      background: #ebd6c4;
+      border-radius: 40px;
+      padding: 0.2rem 0.9rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #4c3321;
+      letter-spacing: 0.3px;
+      margin-right: 0.4rem;
+    }
+
+    .dir-card .small-link {
+      color: #9e6f47;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px dashed #d4b69a;
+    }
+
+    .dir-card .small-link:hover {
+      color: #6f4628;
+      border-bottom-color: #8b5f3c;
+    }
+
+    /* 卡片式说明区 */
+    .info-section {
+      background: #fffcf7;
+      border-radius: 28px;
+      padding: 2rem 2rem 1.8rem;
+      margin: 2rem 0 2rem 0;
+      box-shadow: 0 6px 16px rgba(120, 80, 45, 0.06);
+      border: 1px solid #f0decd;
+    }
+
+    .info-section h2 {
+      font-size: 1.6rem;
+      font-weight: 550;
+      color: #3e2b1d;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #e7d2be;
+      padding-bottom: 0.5rem;
+    }
+
+    .info-section p {
+      margin-bottom: 0.8rem;
+    }
+
+    .info-section .highlight {
+      background: #f5e6d9;
+      border-radius: 20px;
+      padding: 0.2rem 0.9rem;
+      color: #4d3626;
+      font-weight: 450;
+    }
+
+    .info-section ul {
+      padding-left: 1.6rem;
+      margin: 0.8rem 0 1.2rem;
+      list-style-type: "· ";
+    }
+
+    .info-section li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* 提示区 */
+    .tip-area {
+      background: #f6ede5;
+      border-radius: 24px;
+      padding: 1.6rem 2rem;
+      margin: 2rem 0 1.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 1.2rem 2rem;
+      border-left: 8px solid #b1805a;
+    }
+
+    .tip-area .tip-icon {
+      font-size: 1.5rem;
+      background: #e1cabb;
+      width: 48px;
+      height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .tip-content {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .tip-content p {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .tip-content .tiny-meta {
+      font-size: 0.85rem;
+      color: #6e5542;
+    }
+
+    /* 相关信息区 */
+    .related-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 2rem;
+      background: #faf3eb;
+      border-radius: 24px;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0 1rem;
+      border: 1px solid #e3cfbc;
+    }
+
+    .related-item {
+      flex: 1 1 180px;
+    }
+
+    .related-item h4 {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #4d3524;
+      margin-bottom: 0.3rem;
+    }
+
+    .related-item a {
+      color: #7f583b;
+      text-decoration: none;
+      font-weight: 480;
+      border-bottom: 1px solid transparent;
+      transition: border 0.1s;
+    }
+
+    .related-item a:hover {
+      border-bottom: 1px solid #a57a5a;
+      color: #4f3421;
+    }
+
+    .related-item .muted {
+      color: #7a624e;
+      font-size: 0.9rem;
+    }
+
+    /* 内联链接样式 */
+    a.inline-link {
+      color: #7e5539;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid #bfa186;
+      transition: all 0.1s;
+    }
+
+    a.inline-link:hover {
+      color: #492f1e;
+      border-bottom-color: #7b563b;
+    }
+
+    /* 底部 */
+    .footer-note {
+      margin-top: 2.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #dac2ae;
+      font-size: 0.85rem;
+      color: #6f5947;
+      opacity: 0.7;
+      text-align: right;
+    }
+
+    /* 响应式 */
+    @media (max-width: 700px) {
+      .container {
+        padding: 1.5rem 1.2rem;
+      }
+      .page-header h1 {
+        font-size: 2rem;
+      }
+      .grid-dir {
+        grid-template-columns: 1fr;
+      }
+      .tip-area {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .related-info {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 头部 -->
+    <div class="page-header">
+      <h1>星空体育 · 知识库</h1>
+      <div class="sub">简明指南 · 访问提醒 · 实用信息</div>
+    </div>
+
+    <!-- 目录感卡片网格 -->
+    <div class="grid-dir">
+      <div class="dir-card">
+        <h3>📘 平台概览</h3>
+        <p><span class="badge">指南</span> 星空体育整合赛事动态、数据工具与用户服务。通过 <a href="https://app1-xingkongsports.com" class="small-link">星空体育</a> 可直接获取最新功能模块。</p>
+        <p style="font-size:0.9rem; color: #634f3d;">支持多终端自适应界面，内容按分类索引。</p>
+      </div>
+      <div class="dir-card">
+        <h3>📂 访问须知</h3>
+        <p>建议使用现代浏览器（Chrome / Edge / Safari 最新版）。部分资源需要稳定的网络连接。</p>
+        <p>🔹 官方唯一地址为当前页面链接，请核对域名。</p>
+      </div>
+      <div class="dir-card">
+        <h3>⚙️ 常用功能</h3>
+        <p>赛事日历 · 数据面板 · 个人中心 · 消息提醒 · 内容收藏</p>
+        <p>更多模块可通过主站 <a href="https://app1-xingkongsports.com" class="small-link">星空体育</a> 导航栏探索。</p>
+      </div>
+      <div class="dir-card">
+        <h3>❓ 快速 FAQ</h3>
+        <p><strong>Q:</strong> 如何确认访问正确？<br>检查浏览器地址栏是否显示 <code>app1-xingkongsports.com</code>。</p>
+        <p><strong>Q:</strong> 页面加载异常？<br>可尝试清理缓存或切换网络环境。</p>
+      </div>
+    </div>
+
+    <!-- 说明区：简明指南 -->
+    <div class="info-section">
+      <h2>📌 简明指南</h2>
+      <p><span class="highlight">星空体育</span> 定位为综合性体育信息与互动平台。本知识库归纳了以下要点：</p>
+      <ul>
+        <li><strong>首页结构</strong>：顶部导航分设“赛事”“数据”“社区”“个人”四大板块，侧边栏可快速筛选。</li>
+        <li><strong>内容组织</strong>：每类信息以卡片组呈现，支持关键词检索与标签过滤。</li>
+        <li><strong>账户相关</strong>：注册或登录后可使用订阅、收藏、历史记录等功能。</li>
+        <li><strong>数据更新</strong>：比赛数据通常延迟 2–5 分钟，以官方数据源为准。</li>
+      </ul>
+      <p>如需直接访问主界面，点击 <a href="https://app1-xingkongsports.com" class="inline-link">星空体育</a> 即可进入。建议首次使用前阅读对应页面的帮助提示。</p>
+    </div>
+
+    <!-- 提示区 -->
+    <div class="tip-area">
+      <div class="tip-icon">💡</div>
+      <div class="tip-content">
+        <p><strong>访问提醒</strong></p>
+        <p>请认准域名 <code>app1-xingkongsports.com</code>。不要通过非官方渠道跳转。如遇页面提示更新，建议从主站重新进入。</p>
+        <p class="tiny-meta">维护时段：每周二凌晨 03:00–05:00 (UTC+8) 可能短暂离线。</p>
+      </div>
+    </div>
+
+    <!-- 相关信息区 -->
+    <div class="related-info">
+      <div class="related-item">
+        <h4>🔗 相关资源</h4>
+        <p><a href="https://app1-xingkongsports.com" class="inline-link">星空体育</a> — 主站入口</p>
+        <p class="muted">含赛事直播、数据查询、社区动态等。</p>
+      </div>
+      <div class="related-item">
+        <h4>📋 内容索引</h4>
+        <p><span class="muted">指南类型：</span> 入门 / 数据说明 / 账户 / 反馈</p>
+        <p class="muted">部分页面需登录后可见。</p>
+      </div>
+      <div class="related-item">
+        <h4>🧩 环境建议</h4>
+        <p class="muted">分辨率 ≥ 1280px 体验更完整；移动端适配良好。</p>
+        <p class="muted">JavaScript 需保持开启。</p>
+      </div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+      信息页 · 持续修订
+    </div>
+  </div>
+</body>
+</html>
