@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>吉祥坊 · 站点介绍与可信说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(145deg, #fbe9d2 0%, #f5d6b0 60%, #ecc49a 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            line-height: 1.7;
+            color: #3c2e22;
+        }
+
+        .main-card {
+            max-width: 880px;
+            width: 100%;
+            background: #fffcf7;
+            border-radius: 48px 24px 48px 24px;
+            box-shadow: 0 16px 40px -12px rgba(120, 70, 30, 0.25), 0 6px 12px rgba(180, 120, 60, 0.08);
+            padding: 2.8rem 2.5rem;
+            transition: box-shadow 0.2s ease;
+        }
+
+        @media (max-width: 600px) {
+            .main-card {
+                padding: 2rem 1.4rem;
+                border-radius: 32px 16px 32px 16px;
+            }
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #553b28;
+            margin-bottom: 0.2rem;
+            border-left: 6px solid #d8975a;
+            padding-left: 1.2rem;
+        }
+
+        .subhead {
+            font-size: 1.1rem;
+            color: #7a5f47;
+            margin-bottom: 2.2rem;
+            padding-left: 1.8rem;
+            font-weight: 380;
+        }
+
+        .tagline {
+            background: #f1e3d4;
+            padding: 0.8rem 1.6rem;
+            border-radius: 60px;
+            display: inline-block;
+            font-size: 0.95rem;
+            color: #4d392b;
+            margin-bottom: 2.2rem;
+            font-weight: 450;
+            letter-spacing: 0.3px;
+        }
+
+        .intro-text {
+            font-size: 1.06rem;
+            margin-bottom: 2rem;
+            background: #f9f1e7;
+            padding: 1.5rem 1.8rem;
+            border-radius: 24px;
+            box-shadow: inset 0 1px 4px rgba(255, 255, 255, 0.8);
+        }
+
+        .intro-text p {
+            margin-bottom: 1rem;
+        }
+
+        .intro-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0 2.4rem 0;
+        }
+
+        .highlight-item {
+            flex: 1 1 220px;
+            background: #fff5ec;
+            padding: 1.4rem 1.2rem;
+            border-radius: 28px 12px 28px 12px;
+            box-shadow: 0 4px 8px rgba(160, 100, 60, 0.08);
+        }
+
+        .highlight-item h3 {
+            font-size: 1.2rem;
+            font-weight: 550;
+            color: #6c4b30;
+            margin-bottom: 0.5rem;
+            border-bottom: 2px dotted #dbaa7a;
+            padding-bottom: 0.3rem;
+            display: inline-block;
+        }
+
+        .highlight-item p {
+            font-size: 0.95rem;
+            margin-top: 0.4rem;
+            color: #4e3e30;
+        }
+
+        .usage-section {
+            margin: 2.2rem 0 2rem 0;
+            background: #fbeee2;
+            padding: 1.6rem 1.8rem;
+            border-radius: 30px 14px 30px 14px;
+        }
+
+        .usage-section h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #5a3f2b;
+            margin-bottom: 1rem;
+        }
+
+        .usage-section ul {
+            list-style: none;
+            padding-left: 0.2rem;
+        }
+
+        .usage-section li {
+            padding: 0.5rem 0 0.5rem 2rem;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23d8975a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>') left center no-repeat;
+            background-size: 18px;
+            margin-bottom: 0.4rem;
+            color: #3d2f23;
+        }
+
+        .trust-note {
+            background: #e9d9c7;
+            padding: 1.2rem 1.8rem;
+            border-radius: 40px 14px 40px 14px;
+            margin: 2rem 0 1.8rem 0;
+            font-size: 0.98rem;
+            border-left: 5px solid #b58357;
+        }
+
+        .faq-mini {
+            margin-top: 2rem;
+            border-top: 1px solid #e5cfbb;
+            padding-top: 1.8rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.8rem;
+            background: #f9efe5;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+
+        .faq-mini details:hover {
+            background: #f3e3d3;
+        }
+
+        .faq-mini summary {
+            font-weight: 520;
+            color: #4b3828;
+            outline: none;
+        }
+
+        .faq-mini summary::marker {
+            color: #b58357;
+        }
+
+        .faq-mini details p {
+            margin-top: 0.6rem;
+            padding-left: 0.8rem;
+            color: #3d3229;
+            font-size: 0.95rem;
+        }
+
+        .btn-link {
+            display: inline-block;
+            background: #d8975a;
+            color: #1f150e;
+            padding: 0.65rem 1.8rem;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 550;
+            font-size: 1.05rem;
+            letter-spacing: 0.3px;
+            box-shadow: 0 4px 10px rgba(190, 120, 60, 0.2);
+            transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+            border: none;
+            cursor: default;
+        }
+
+        .btn-link:hover {
+            background: #ce8749;
+            box-shadow: 0 6px 14px rgba(170, 100, 40, 0.25);
+            transform: translateY(-1px);
+        }
+
+        .btn-link:active {
+            transform: scale(0.97);
+        }
+
+        .link-sentence {
+            margin: 1.2rem 0 0.4rem 0;
+            font-size: 1.02rem;
+            background: #fffbf5;
+            padding: 1rem 1.6rem;
+            border-radius: 50px;
+            display: inline-block;
+            box-shadow: 0 2px 6px rgba(130, 80, 40, 0.05);
+        }
+
+        .link-sentence a {
+            color: #894e2b;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid #d8975a;
+            padding-bottom: 1px;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .link-sentence a:hover {
+            border-bottom-color: #b36e3a;
+            color: #653d22;
+        }
+
+        .footer-note {
+            margin-top: 2.4rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #716053;
+            border-top: 1px solid #e3d3c1;
+            padding-top: 1.8rem;
+            letter-spacing: 0.2px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e8d5c0;
+            margin: 2rem 0 1.2rem;
+        }
+    </style>
+</head>
+<body>
+<div class="main-card">
+    <h1>吉祥坊</h1>
+    <div class="subhead">站点介绍 · 功能亮点 · 可信说明</div>
+    <div class="tagline">一份从结构到体验的产品式说明</div>
+
+    <div class="intro-text">
+        <p><strong>吉祥坊</strong> 是一个专注于提供线上信息聚合与导航服务的平台。其设计初衷在于帮助用户更清晰地了解不同服务模块的定位与内容边界，减少信息过载带来的选择负担。从界面布局到功能分区，均以实用性为优先考量。</p>
+        <p>平台整体采用模块化结构，各区域承载明确的信息层级，方便使用者根据自身需求快速定位。无论是初次接触还是长期使用，都能在较短时间内建立操作预期。以下从几个方面对站点进行拆解说明。</p>
+    </div>
+
+    <div class="highlight-grid">
+        <div class="highlight-item">
+            <h3>信息分类</h3>
+            <p>页面内容按主题与用途划分，入口清晰，减少无关干扰。每个模块都有独立视觉锚点，便于区分。</p>
+        </div>
+        <div class="highlight-item">
+            <h3>响应适配</h3>
+            <p>在移动端与桌面端均保持可读性与操作性，排版随屏幕宽度自然调整，核心功能不受设备影响。</p>
+        </div>
+        <div class="highlight-item">
+            <h3>导航逻辑</h3>
+            <p>主要操作路径控制在两到三次点击以内，高频功能置于显眼位置，降低学习成本。</p>
+        </div>
+    </div>
+
+    <div class="usage-section">
+        <h2>使用建议与场景</h2>
+        <ul>
+            <li><strong>信息浏览：</strong> 适合希望通过统一入口获取多个板块内容的用户，无需在多个页面之间频繁切换。</li>
+            <li><strong>初步了解：</strong> 新用户可通过首页各区域快速建立对平台服务范围的整体印象。</li>
+            <li><strong>日常参考：</strong> 常用功能固定于导航结构中，熟悉后可直接跳转，提高操作效率。</li>
+            <li><strong>理性使用：</strong> 建议根据个人实际需求选择性探索，避免漫无目的的浏览。</li>
+        </ul>
+    </div>
+
+    <div class="trust-note">
+        <strong>⚠ 可信说明：</strong> 本页面仅对 <a href="https://portals-wellbet.com" style="color:#6e422b; text-decoration:underline; font-weight:500;">吉祥坊</a> 的平台结构与内容组织方式进行客观介绍。所有描述均基于站点呈现本身，不包含对任何服务效果、收益或保证的承诺。用户在使用过程中应保持理性判断，并自行了解相关条款。
+    </div>
+
+    <div class="faq-mini">
+        <details>
+            <summary>吉祥坊 主要提供什么类型的信息？</summary>
+            <p>平台内容覆盖多个分类，包括资讯、工具入口、功能引导等，具体以页面实际展示为准。建议直接浏览各模块标题与摘要说明。</p>
+        </details>
+        <details>
+            <summary>是否需要注册或登录才能浏览？</summary>
+            <p>部分内容可直接查看，特定功能或区域可能有访问限制。具体可见页面提示或相关说明。</p>
+        </details>
+        <details>
+            <summary>移动端与桌面端体验是否一致？</summary>
+            <p>核心内容与导航逻辑保持一致，但布局会根据屏幕尺寸进行适配优化，确保在手机与电脑上均能顺畅操作。</p>
+        </details>
+    </div>
+
+    <hr>
+
+    <div class="link-sentence">
+        若希望进一步了解平台的结构与内容，可直接访问 <a href="https://portals-wellbet.com">吉祥坊</a> 并参考各板块的说明。
+    </div>
+
+    <div class="footer-note">
+        基于公开信息整理 · 介绍内容仅代表站点当前结构 · 如有变更请以实际页面为准
+    </div>
+</div>
+</body>
+</html>
